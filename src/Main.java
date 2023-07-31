@@ -8,10 +8,10 @@ public class Main {
 
 
         // Roles
-        // Negative marking
-        // realtime score
-        // play again (different question)
-        // skip question
+        // Negative marking Done
+        // realtime score Done
+        // play again (different question) Done
+        // skip question Done
         // set timer
 
 

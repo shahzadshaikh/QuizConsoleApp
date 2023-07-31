@@ -4,6 +4,7 @@ public class QuestionService {
 
     Question[] questions = new Question[5];
     String selection[] = new String[5];
+    char select;
 
     public QuestionService()
     {
@@ -27,6 +28,7 @@ public class QuestionService {
     public void playQuiz()
     {
         int i=0;
+        int score1=0;
         for(Question q : questions){
             System.out.println("Question " + (i+1) + " : ");
             System.out.println(q.getQuestion());
@@ -39,17 +41,36 @@ public class QuestionService {
             Scanner sc = new Scanner(System.in);
 
             selection[i] = sc.nextLine().trim();
+            System.out.println("Skip the question: y/n");
+            Scanner sc2 = new Scanner(System.in);
+            String str2= sc2.nextLine();
+            if (str2.equals("y")){
+                i++;
+            }
+
+            String answer = q.getAnswer();
+            String selAnswer = selection[i];
             i++;
 
+            if(answer.equals(selAnswer)){
+                score1++;
+            }
+            else {
+                score1--;
+            }
+            System.out.println("Live score is "+score1);
+        }
+        System.out.println("Play agian y/n");
+        Scanner sc1 = new Scanner(System.in);
+        String str= sc1.next().trim();
+        if(str.equals("y")){
+            playQuiz();
         }
     }
 
     public void printScore(){
         int score=0;
-        for(String s : selection){
-            System.out.println(s);
-        }
-        for(int i=0;i<5;i++){
+       for(int i=0;i<5;i++){
             Question q = questions[i];
             String answer = q.getAnswer();
             String selAnswer = selection[i];
@@ -57,7 +78,9 @@ public class QuestionService {
             if(answer.equals(selAnswer)){
                 score++;
             }
-
+            else {
+                score--;
+            }
         }
         System.out.println("result : " + score);
     }
