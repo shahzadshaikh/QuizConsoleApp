@@ -17,7 +17,8 @@ public class Main {
 
         QuestionService service = new QuestionService();
         //service.displayQuestions();
-        service.playQuiz();
+        //service.playQuiz();
+        service.Usermanagment();
         service.printScore();
 
 

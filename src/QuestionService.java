@@ -24,7 +24,21 @@ public class QuestionService {
         }
 
     }
+    public void Usermanagment(){
+        System.out.println("Welcome to Quize Application");
+        System.out.println("Enter user name :");
+        Scanner scan = new Scanner(System.in);
+        String uname = scan.next();
+        System.out.println("Enter pass");
+        String pass = scan.next();
 
+        if(uname.equalsIgnoreCase("Shahzad") && pass.equals("12345")){
+            playQuiz();
+        }else{
+            System.out.println("Invalid credentials try again");
+            Usermanagment();
+        }
+    }
     public void playQuiz()
     {
         int i=0;
