@@ -51,28 +51,30 @@ public class QuestionService {
             System.out.println(q.getOpt3());
             System.out.println(q.getOpt4());
 
-            System.out.println("type the right answer:");
-            Scanner sc = new Scanner(System.in);
-
-            selection[i] = sc.nextLine().trim();
             System.out.println("Skip the question: y/n");
             Scanner sc2 = new Scanner(System.in);
             String str2= sc2.nextLine();
             if (str2.equals("y")){
                 i++;
+            }else{
+                System.out.println("type the right answer:");
+                Scanner sc = new Scanner(System.in);
+                selection[i] = sc.nextLine().trim();
+                String answer = q.getAnswer();
+                String selAnswer = selection[i];
+                i++;
+
+                if(answer.equals(selAnswer)){
+                    score1++;
+                }
+                else {
+                    score1--;
+                }
+                System.out.println("Live score is "+score1);
             }
 
-            String answer = q.getAnswer();
-            String selAnswer = selection[i];
-            i++;
 
-            if(answer.equals(selAnswer)){
-                score1++;
-            }
-            else {
-                score1--;
-            }
-            System.out.println("Live score is "+score1);
+
         }
         System.out.println("Play agian y/n");
         Scanner sc1 = new Scanner(System.in);
