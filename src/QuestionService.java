@@ -29,31 +29,31 @@ public class QuestionService {
     }
     public void start(){
         System.out.println("Welcome to Quize App");
-        System.out.println("Select login mode : ");
-        System.out.print("1. User ");
-        System.out.println("2. Admin");
+        System.out.println("select login mode : ");
+        System.out.print("1. user ");
+        System.out.println("2. admin");
         try{
         Scanner scan = new Scanner(System.in);
         int mode=scan.nextInt();
         if(mode==1){
           Usermanagment();
         }else if(mode==2){
-            System.out.println("Admin mode");
+            System.out.println("admin mode");
             System.exit(0);
             }else{
-            System.out.println("Invalid input ! try again");
+            System.out.println("invalid input ! try again");
             start();
         }
         }catch(Exception e){
-            System.out.println("Please enter number value");
+            System.out.println("please enter number value :");
         }
         start();
     }
     public void Usermanagment() {
-        System.out.println("Enter user name :");
+        System.out.println("enter user name :");
         Scanner scan = new Scanner(System.in);
         uname = scan.next();
-        System.out.println("Enter password :");
+        System.out.println("enter password :");
         pass = scan.next();
         verify();
     }
@@ -62,7 +62,7 @@ public class QuestionService {
         if(uname.equalsIgnoreCase("Shahzad") && pass.equals("12345")){
             playQuiz();
         }else {
-            System.out.println("Invalid credentials try again");
+            System.out.println("invalid credentials try again");
             Usermanagment();
         }
         }
@@ -96,27 +96,30 @@ public class QuestionService {
                 }
                 System.out.println("live score is " + score);
             }else{
-                System.out.println("Invalid input! try again");
+                System.out.println("invalid input! try again");
                 playQuiz();
             }
         }
         PlayAgain();
     }
     public void PlayAgain(){
-        System.out.println("Want to play again: y/n");
+        System.out.println("want to play again: y/n");
         Scanner sc1 = new Scanner(System.in);
         String str= sc1.nextLine();
         if(str.equalsIgnoreCase("y")){
             playQuiz();
         } else if (str.equalsIgnoreCase("n")) {
+            System.out.println("thanks for playing !!!");
+            printScore();
+            System.exit(0);
         } else {
-            System.out.println("Invalid Input! try again");
+            System.out.println("invalid Input! try again");
             PlayAgain();
         }
     }
 
     public void printScore(){
 
-        System.out.println("Final result : " + score);
+        System.out.println("final result : " + score);
     }
 }
