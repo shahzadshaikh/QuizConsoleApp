@@ -18,10 +18,9 @@ public class Main {
         QuestionService service = new QuestionService();
         //service.displayQuestions();
         //service.playQuiz();
-        service.start();
+
+        App app=new App();
+        app.initiate1();
         service.printScore();
-
-
-
     }
 }
